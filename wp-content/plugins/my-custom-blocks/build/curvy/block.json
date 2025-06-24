@@ -1,0 +1,95 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "custom-block/curvy",
+  "version": "0.1.0",
+  "title": "Curvy",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "a curvy block",
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "core/heading",
+        "attributes": {
+          "content": "Heading"
+        }
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "This is an example curvy block"
+        }
+      }
+    ]
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "spacing": {
+      "padding": true
+    }
+  },
+  "variations": [
+    {
+      "name": "top-only",
+      "title": "Curcy - top only",
+      "attributes": {
+        "enableBottomCurve": false,
+        "enableTopCurve": true
+      }
+    }
+  ],
+  "attributes": {
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "var(--wp--preset--color--dark-blue)"
+        },
+        "spacing": {
+          "padding": {
+            "top": "80px",
+            "bottom": "50px",
+            "left": "50px",
+            "right": "80px"
+          }
+        }
+      }
+    },
+    "enableTopCurve": {
+      "type": "boolean",
+      "default": true
+    },
+    "topWidth": {
+      "type": "number",
+      "default": 100
+    },
+    "topHeight": {
+      "type": "number",
+      "default": 100
+    },
+    "topFlipX": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "topFlipY": {
+      "type": "boolean",
+      "default": "false"
+    },
+    "topColor": {
+      "type": "string",
+      "default": "#fff"
+    }
+  },
+  "textdomain": "my-custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

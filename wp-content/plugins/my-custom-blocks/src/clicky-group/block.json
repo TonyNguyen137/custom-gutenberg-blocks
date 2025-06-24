@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "custom-blocks/clicky-group",
+	"version": "0.1.0",
+	"title": "Clicky Group",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "a nice group block",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"blockGap": true
+		}
+	},
+	"attributes": {
+		"justifyContent": {
+			"type": "string",
+			"enum": ["left", "center", "right"],
+			"default": "left"
+		}
+	},
+	"allowedBlocks": ["custom-blocks/clicky-button"],
+	"textdomain": "my-custom-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
