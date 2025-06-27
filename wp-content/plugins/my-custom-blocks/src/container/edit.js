@@ -30,7 +30,7 @@ import "./editor.scss";
  * @return {Element} Element to render.
  */
 
-export default function Edit() {
+export default function Edit(props) {
 	return (
 		<>
 			<div {...useBlockProps({ className: "container" })}>

@@ -22,6 +22,7 @@ import {
 import { useEffect } from "@wordpress/element";
 
 import { Button, PanelBody, PanelRow } from "@wordpress/components";
+import metadata from "./block.json";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -47,30 +48,35 @@ export default function Edit({ attributes, setAttributes }) {
 		function () {
 			async function go() {
 				const response = await apiFetch({
-					path: `/wp/v2/media/${attributes.imgID}`,
+					path: `/wp/v2/media/${attributes.videoID}`,
 					method: "GET",
 				});
+				console.log("response ", response);
 
 				setAttributes({
-					imgUrl: response.media_details.sizes.thumbnail.source_url,
+					videoURL: response.source_url,
+					mimeType: response.mime_type,
+					videoName: response.slug,
 				});
 			}
 			go();
 		},
-		[attributes.imgID],
+		[attributes.videoID],
 	);
 
 	function onFileSelect(x) {
 		console.log("x: ", x);
 		setAttributes({
-			imgID: x.id,
+			videoID: x.id,
 		});
 	}
 
 	function handleDelete() {
 		setAttributes({
-			imgID: null,
-			imgUrl: null,
+			videoID: null,
+			videoURL: null,
+			videoName: null,
+			mimeType: null,
 		});
 	}
 
@@ -79,7 +85,10 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Background" initialOpen={true}>
+				<PanelBody
+					title={__("Video Hintergrund", metadata.textdomain)}
+					initialOpen={true}
+				>
 					<MediaUploadCheck>
 						<MediaUpload
 							onSelect={onFileSelect}
@@ -89,19 +98,27 @@ export default function Edit({ attributes, setAttributes }) {
 									<div
 										style={{
 											display: "flex",
+											flexWrap: "wrap",
 											gap: "8px",
 											alignItems: "center",
 										}}
 									>
-										<img width="48" src={attributes.imgUrl} alt="" />
+										{attributes.videoID && (
+											<span
+												style={{
+													width: "100%",
+													textDecoration: "underline",
+													flexShrink: 0,
+												}}
+											>
+												{attributes.videoName}
+											</span>
+										)}
 
-										<Button
-											style={{ outline: "1px dashed black" }}
-											onClick={open}
-										>
-											Choose Image
+										<Button onClick={open} variant="primary">
+											{__("video auswählen", metadata.textdomain)}
 										</Button>
-										{attributes.imgID && (
+										{attributes.videoID && (
 											<button onClick={handleDelete}>X</button>
 										)}
 									</div>
@@ -112,17 +129,13 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<section {...useBlockProps({ className: "hero" })}>
-				<img src={attributes.imgUrl} alt="" />
-				<div className="container">
-					<InnerBlocks
-						allowedBlocks={[
-							"core/paragraph",
-							"core/heading",
-							"core/quote",
-							"custom-blocks/button",
-						]}
-					/>
-				</div>
+				{attributes.videoID && (
+					<video playsinline autoplay loop muted>
+						<source src={attributes.videoURL} type={attributes.mimeType} />
+						Your browser does not support the video tag.
+					</video>
+				)}
+				<InnerBlocks />
 			</section>
 		</>
 	);

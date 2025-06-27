@@ -264,7 +264,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Hero',
 		'category' => 'widgets',
-		'icon' => 'hero',
+		'icon' => 'superhero',
 		'description' => 'a hero block',
 		'example' => array(
 			
@@ -277,10 +277,16 @@ return array(
 				'type' => 'string',
 				'default' => 'full'
 			),
-			'imgID' => array(
+			'videoName' => array(
+				'type' => 'string'
+			),
+			'videoID' => array(
 				'type' => 'number'
 			),
-			'imgURL' => array(
+			'videoURL' => array(
+				'type' => 'string'
+			),
+			'mimeType' => array(
 				'type' => 'string'
 			)
 		),

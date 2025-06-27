@@ -5,21 +5,28 @@
 	"version": "0.1.0",
 	"title": "Hero",
 	"category": "widgets",
-	"icon": "hero",
+	"icon": "superhero",
 	"description": "a hero block",
 	"example": {},
 	"supports": {
 		"html": false
 	},
+
 	"attributes": {
 		"align": {
 			"type": "string",
 			"default": "full"
 		},
-		"imgID": {
+		"videoName": {
+			"type": "string"
+		},
+		"videoID": {
 			"type": "number"
 		},
-		"imgURL": {
+		"videoURL": {
+			"type": "string"
+		},
+		"mimeType": {
 			"type": "string"
 		}
 	},
