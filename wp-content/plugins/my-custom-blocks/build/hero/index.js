@@ -8,7 +8,7 @@
   \*****************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"custom-block/hero","version":"0.1.0","title":"Hero","category":"widgets","icon":"superhero","description":"a hero block","example":{},"supports":{"html":false},"attributes":{"align":{"type":"string","default":"full"},"videoName":{"type":"string"},"videoID":{"type":"number"},"videoURL":{"type":"string"},"mimeType":{"type":"string"}},"textdomain":"my-custom-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cb/hero","version":"0.1.0","title":"Hero","category":"widgets","icon":"superhero","description":"a hero block","example":{},"supports":{"html":false,"align":["full"]},"attributes":{"align":{"type":"string","default":"full"},"videoName":{"type":"string"},"videoID":{"type":"number"},"videoURL":{"type":"string"},"mimeType":{"type":"string"}},"textdomain":"my-custom-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -81,7 +81,7 @@ function Edit({
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     async function go() {
       const response = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default()({
-        path: `/wp/v2/media/${attributes.videoID}`,
+        path: `/wp/v2/media`,
         method: "GET"
       });
       console.log("response ", response);

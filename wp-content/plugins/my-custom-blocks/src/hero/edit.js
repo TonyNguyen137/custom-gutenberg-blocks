@@ -48,7 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
 		function () {
 			async function go() {
 				const response = await apiFetch({
-					path: `/wp/v2/media/${attributes.videoID}`,
+					path: `/wp/v2/media`,
 					method: "GET",
 				});
 				console.log("response ", response);

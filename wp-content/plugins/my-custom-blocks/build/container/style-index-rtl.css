@@ -7,9 +7,34 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-custom-block-container.container {
+.wp-block-cb-container {
   width: 100%;
-  margin-inline: auto;
-  max-width: 1320px;
   padding-inline: 12px;
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 576px) {
+  .wp-block-cb-container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wp-block-cb-container:not(.is-style-sm) {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 1140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 1320px;
+  }
 }

@@ -1,18 +1,49 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "custom-block/container",
+	"name": "cb/container",
 	"version": "0.0.1",
 	"title": "Container",
 	"category": "custom-blocks",
 
 	"icon": "smiley",
 	"description": "a simple block",
-	"example": {},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/heading",
+				"attributes": {
+					"level": 3,
+					"content": "Heading"
+				}
+			},
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus, lectus non interdum cursus, arcu sapien mollis lacus, et tincidunt odio nisi ut purus. Duis eleifend, magna placerat faucibus tincidunt, orci nulla ornare tortor, eget egestas tortor nunc quis sem. Cras in tortor justo. Nulla consectetur leo vel blandit consectetur.Fusce quis sapien ante. Vestibulum non varius augue, et ultricies urna. Integer hendrerit suscipit nibh."
+				}
+			}
+		]
+	},
 	"supports": {
-		"html": false,
+		"html": true,
 		"anchor": true
 	},
+	"attributes": {
+		"anchor": {
+			"type": "string"
+		}
+	},
+	"styles": [
+		{
+			"name": "sm",
+			"label": "SM"
+		},
+		{
+			"name": "md",
+			"label": "MD"
+		}
+	],
 	"textdomain": "my-custom-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

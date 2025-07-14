@@ -143,18 +143,47 @@ return array(
 	'container' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'custom-block/container',
+		'name' => 'cb/container',
 		'version' => '0.0.1',
 		'title' => 'Container',
 		'category' => 'custom-blocks',
 		'icon' => 'smiley',
 		'description' => 'a simple block',
 		'example' => array(
-			
+			'innerBlocks' => array(
+				array(
+					'name' => 'core/heading',
+					'attributes' => array(
+						'level' => 3,
+						'content' => 'Heading'
+					)
+				),
+				array(
+					'name' => 'core/paragraph',
+					'attributes' => array(
+						'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus, lectus non interdum cursus, arcu sapien mollis lacus, et tincidunt odio nisi ut purus. Duis eleifend, magna placerat faucibus tincidunt, orci nulla ornare tortor, eget egestas tortor nunc quis sem. Cras in tortor justo. Nulla consectetur leo vel blandit consectetur.Fusce quis sapien ante. Vestibulum non varius augue, et ultricies urna. Integer hendrerit suscipit nibh.'
+					)
+				)
+			)
 		),
 		'supports' => array(
-			'html' => false,
+			'html' => true,
 			'anchor' => true
+		),
+		'attributes' => array(
+			'anchor' => array(
+				'type' => 'string'
+			)
+		),
+		'styles' => array(
+			array(
+				'name' => 'sm',
+				'label' => 'SM'
+			),
+			array(
+				'name' => 'md',
+				'label' => 'MD'
+			)
 		),
 		'textdomain' => 'my-custom-blocks',
 		'editorScript' => 'file:./index.js',
@@ -257,10 +286,52 @@ return array(
 		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
+	'grid-even' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'cb/grid-even',
+		'version' => '0.1.0',
+		'title' => 'Grid Even Columns',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'A responsive grid block that lets the user determine the number of columns at specific media query breakpoints.',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'attributes' => array(
+			'gridClasses' => array(
+				'type' => 'array',
+				'default' => array(
+					
+				)
+			),
+			'defaultColumnNumber' => array(
+				'type' => 'number',
+				'default' => 1
+			),
+			'enableSmBreakpoint' => array(
+				'type' => 'boolean',
+				'default' => false
+			),
+			'SmColumnNumber' => array(
+				'type' => 'number',
+				'default' => null
+			)
+		),
+		'textdomain' => 'my-custom-blocks',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
 	'hero' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'custom-block/hero',
+		'name' => 'cb/hero',
 		'version' => '0.1.0',
 		'title' => 'Hero',
 		'category' => 'widgets',
@@ -270,7 +341,10 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'align' => array(
+				'full'
+			)
 		),
 		'attributes' => array(
 			'align' => array(
@@ -338,8 +412,7 @@ return array(
 			'attributes' => array(
 				'columnCount' => 2,
 				'columnWidth' => 80
-			),
-			'viewportWidth' => 720
+			)
 		),
 		'parent' => array(
 			'core/post-content'
@@ -438,15 +511,15 @@ return array(
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
 	),
-	'section' => array(
+	'wrapper' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'custom-block/section',
+		'name' => 'cb/wrapper',
 		'version' => '0.1.0',
-		'title' => 'Section',
+		'title' => 'Wrapper',
 		'category' => 'custom-blocks',
 		'icon' => 'smiley',
-		'description' => 'A <section> or <div> HTML element used to wrap related content.',
+		'description' => 'A wrapper block that allows the user to select the HTML element—such as <section>, <header>, <main>, <article>, <footer>, <aside>, or <div>—to group and organize related content semantically.',
 		'example' => array(
 			
 		),

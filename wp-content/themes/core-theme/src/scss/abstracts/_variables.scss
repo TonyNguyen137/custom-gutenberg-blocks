@@ -47,7 +47,6 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px,
   xxl: 1400px,
-  3xl: 1600px,
 );
 
 // rem values
@@ -70,7 +69,6 @@ $container-max-widths: (
   lg: 960px,
   xl: 1140px,
   xxl: 1320px,
-  3xl: 1500px,
 );
 
 // @debug map.get($container-max-widths, sm);

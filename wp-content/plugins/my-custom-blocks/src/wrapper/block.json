@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "custom-block/section",
+	"name": "cb/wrapper",
 	"version": "0.1.0",
-	"title": "Section",
+	"title": "Wrapper",
 	"category": "custom-blocks",
 	"icon": "smiley",
-	"description": "A <section> or <div> HTML element used to wrap related content.",
+	"description": "A wrapper block that allows the user to select the HTML element—such as <section>, <header>, <main>, <article>, <footer>, <aside>, or <div>—to group and organize related content semantically.",
 	"example": {},
 	"supports": {
 		"html": false,

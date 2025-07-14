@@ -6,7 +6,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-custom-block-container {
+.wp-block-cb-container {
   min-height: 24px;
   outline: 0.5px dashed black;
 }

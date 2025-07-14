@@ -1,36 +1,13 @@
 @use "../abstracts/" as *;
 
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-
-  @if ($enable-reduced-motion) {
-    @media (prefers-reduced-motion: reduce) {
-      &:focus-within {
-        scroll-behavior: auto !important;
-      }
-    }
-  }
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  @if ($enable-reduced-motion) {
-    @media (prefers-reduced-motion: reduce) {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
 }
 
 body {
-  // font-family: "Montserrat", sans-serif;
-  /* 5. Improve text rendering */
-  // -webkit-font-smoothing: antialiased;
+  margin: 0;
   line-height: 1.5;
 }
 
@@ -50,36 +27,10 @@ video {
   max-width: 100%;
 }
 
-/* Inherit fonts for inputs and buttons */
-// select,
-// input,
-// button,
-// textarea {
-//   color: inherit;
-//   font: inherit;
-// }
-
-/* Set shorter line heights on headings and interactive elements */
-// h1,
-// h2,
-// h3,
-// h4,
-// button,
-// input,
-// label {
-//   line-height: 1.1;
-// }
-
-/* Improve line wrapping */
-// p {
-//   text-wrap: pretty;
-// }
-
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   text-wrap: balance;
-// }
+// Prevents the post title in the editor from being flush against the edge
+.editor-visual-editor__post-title-wrapper .wp-block-post-title {
+  padding-inline: var(--container-padding-x);
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+}

@@ -1,6 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /*!*****************************!*\
-  !*** ./src/section/view.js ***!
+  !*** ./src/wrapper/view.js ***!
   \*****************************/
 /**
  * Use this file for JavaScript code that you want to run in the front-end 

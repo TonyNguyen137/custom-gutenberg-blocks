@@ -1,9 +1,16 @@
 <?php
-/**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+ /**
+ *
+ * @var string $attributes['anchor'] - The ID attribute value or empty string if not set.
  */
 
+
+//  var_dump($attributes);
+
+$wrapper_attributes = get_block_wrapper_attributes(
+	! empty( $attributes['anchor'] ) ? [ 'id' => $attributes['anchor'] ] : []
+);
+
 ?>
-<div class="container">
 	<?php echo $content; ?>
-</div>
+

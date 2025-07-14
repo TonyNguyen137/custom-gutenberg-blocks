@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cb/grid-even",
+  "version": "0.1.0",
+  "title": "Grid Even Columns",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "A responsive grid block that lets the user determine the number of columns at specific media query breakpoints.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "gridClasses": {
+      "type": "array",
+      "default": []
+    },
+    "defaultColumnNumber": {
+      "type": "number",
+      "default": 1
+    },
+    "enableSmBreakpoint": {
+      "type": "boolean",
+      "default": false
+    },
+    "SmColumnNumber": {
+      "type": "number",
+      "default": null
+    }
+  },
+  "textdomain": "my-custom-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
