@@ -1,0 +1,27 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-custom-block-piccy-image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.media-select {
+		width: 100%;
+		padding: 10px 20px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 10px;
+		cursor: pointer;
+		background: #ddd;
+		box-sizing: border-box;
+		border: none;
+		box-shadow: none;
+		&:hover {
+			background-color: #ccc;
+		}
+	}
+}

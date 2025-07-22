@@ -24,7 +24,7 @@
       "type": "boolean",
       "default": false
     },
-    "SmColumnNumber": {
+    "smColumnNumber": {
       "type": "number",
       "default": null
     }

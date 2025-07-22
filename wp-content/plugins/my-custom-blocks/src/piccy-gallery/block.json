@@ -1,22 +1,20 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "custom-blocks/clicky-group",
+	"name": "custom-blocks/piccy-gallery",
 	"version": "0.1.0",
-	"title": "Clicky Group",
+	"title": "Gallery",
 	"category": "widgets",
 	"icon": "smiley",
-	"description": "a nice group block",
+	"description": "very nice gallery",
 	"example": {},
 	"supports": {
-		"html": true
+		"html": false
 	},
-	"attributes": {},
-	"allowedBlocks": ["custom-blocks/clicky-button"],
 	"textdomain": "my-custom-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js",
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
 }

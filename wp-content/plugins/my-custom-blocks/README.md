@@ -49,3 +49,13 @@ https://developer.wordpress.org/block-editor/getting-started/fundamentals/block-
 ## render.php
 
 https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+
+## some usefull hooks
+
+### load dash icons
+
+wp_enqueue_style("dashicons")
+
+### load assets in editor
+
+add_action("enque_block_assets", function)

@@ -114,21 +114,10 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false,
-			'spacing' => array(
-				'blockGap' => true
-			)
+			'html' => true
 		),
 		'attributes' => array(
-			'justifyContent' => array(
-				'type' => 'string',
-				'enum' => array(
-					'left',
-					'center',
-					'right'
-				),
-				'default' => 'left'
-			)
+			
 		),
 		'allowedBlocks' => array(
 			'custom-blocks/clicky-button'
@@ -316,7 +305,7 @@ return array(
 				'type' => 'boolean',
 				'default' => false
 			),
-			'SmColumnNumber' => array(
+			'smColumnNumber' => array(
 				'type' => 'number',
 				'default' => null
 			)
@@ -509,6 +498,58 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
+	'piccy-gallery' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'custom-blocks/piccy-gallery',
+		'version' => '0.1.0',
+		'title' => 'Gallery',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'very nice gallery',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'my-custom-blocks',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
+	'piccy-image' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'custom-block/piccy-image',
+		'version' => '0.1.0',
+		'title' => 'Piccy Image',
+		'category' => 'widgets',
+		'icon' => 'format-image',
+		'description' => 'nice image',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'attributes' => array(
+			'imageId' => array(
+				'type' => 'number'
+			)
+		),
+		'parent' => array(
+			'custom-blocks/piccy-gallery'
+		),
+		'textdomain' => 'my-custom-blocks',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
 	'wrapper' => array(

@@ -2,20 +2,76 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/grid-even/block.json":
-/*!**********************************!*\
-  !*** ./src/grid-even/block.json ***!
-  \**********************************/
-/***/ ((module) => {
+/***/ "./src/components/imageThumbnail.js":
+/*!******************************************!*\
+  !*** ./src/components/imageThumbnail.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cb/grid-even","version":"0.1.0","title":"Grid Even Columns","category":"widgets","icon":"smiley","description":"A responsive grid block that lets the user determine the number of columns at specific media query breakpoints.","example":{},"supports":{"html":false},"attributes":{"gridClasses":{"type":"array","default":[]},"defaultColumnNumber":{"type":"number","default":1},"enableSmBreakpoint":{"type":"boolean","default":false},"smColumnNumber":{"type":"number","default":null}},"textdomain":"my-custom-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ImageThumbnail: () => (/* binding */ ImageThumbnail)
+/* harmony export */ });
+/* harmony import */ var _hooks_useImage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../hooks/useImage */ "./src/hooks/useImage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const ImageThumbnail = props => {
+  const image = (0,_hooks_useImage__WEBPACK_IMPORTED_MODULE_0__.useImage)(props.imageId);
+  console.log("props: ", props);
+  return image?.source_url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+    style: {
+      display: "inlineBlock",
+      objectFit: "cover",
+      height: props.height || 150,
+      width: "100%",
+      pointerEvents: "visible"
+    },
+    onClick: props.onClick,
+    src: image.source_url
+  }) : null;
+};
 
 /***/ }),
 
-/***/ "./src/grid-even/edit.js":
+/***/ "./src/hooks/useImage.js":
 /*!*******************************!*\
-  !*** ./src/grid-even/edit.js ***!
+  !*** ./src/hooks/useImage.js ***!
   \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useImage: () => (/* binding */ useImage)
+/* harmony export */ });
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_0__);
+
+const useImage = imageId => {
+  const image = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useSelect)(select => {
+    const data = select("core").getEntityRecord("postType", "attachment", imageId);
+    return data;
+  }, [imageId]);
+  return image;
+};
+
+/***/ }),
+
+/***/ "./src/piccy-gallery/block.json":
+/*!**************************************!*\
+  !*** ./src/piccy-gallery/block.json ***!
+  \**************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"custom-blocks/piccy-gallery","version":"0.1.0","title":"Gallery","category":"widgets","icon":"smiley","description":"very nice gallery","example":{},"supports":{"html":false},"textdomain":"my-custom-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+
+/***/ }),
+
+/***/ "./src/piccy-gallery/edit.js":
+/*!***********************************!*\
+  !*** ./src/piccy-gallery/edit.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -28,12 +84,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/grid-even/editor.scss");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/grid-even/block.json");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/piccy-gallery/editor.scss");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/piccy-gallery/block.json");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_imageThumbnail__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/imageThumbnail */ "./src/components/imageThumbnail.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
 /**
  * Retrieves the translation of text.
  *
@@ -49,13 +108,13 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
 
 
 
@@ -69,77 +128,83 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-function Edit({
-  attributes,
-  setAttributes
-}) {
-  const [hasSmBreakpoint, setHasSmBreakpoint] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(false);
-  const {
-    defaultColumnNumber,
-    smColumnNumber
-  } = attributes;
-  const styles = {
-    "--col": defaultColumnNumber
-  };
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    style: styles
+function Edit(props) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)({
+    className: "piccy-gallery-inner-blocks"
+  }, {
+    allowedBlocks: ["custom-blocks/piccy-image"]
   });
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps);
-  function handleDefaultColumnNumber(value) {
-    setAttributes({
-      defaultColumnNumber: value
-    });
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Standardanzahl der Spalten", _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain),
-          value: defaultColumnNumber,
-          onChange: handleDefaultColumnNumber,
-          min: defaultColumnNumber,
-          max: 100,
-          step: 1
+  const [editMode, setEditMode] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)(true);
+  const iconMode = editMode ? "welcome-view-site" : "edit";
+  const label = editMode ? "preview gallery" : "edit gallery";
+  const innerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_6__.useSelect)(select => {
+    const {
+      getBlocksByClientId
+    } = select("core/block-editor");
+    const block = getBlocksByClientId(props.clientId)?.[0];
+    return block?.innerBlocks;
+  }, [props.clientId]);
+  const [previewModeImage, setPreviewModeImage] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)({
+    imageId: innerBlocks?.[0]?.attributes?.imageId,
+    blockId: innerBlocks?.[0]?.clientId
+  });
+  console.log("previewModeImage: ", previewModeImage);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
+            icon: iconMode
+          }),
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)(label, _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain),
+          onClick: () => setEditMode(val => !val)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Breakpoints", _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "SM: > 576px",
-          checked: attributes.enableSmBreakpoint,
-          onChange: newVal => {
-            setAttributes({
-              enableSmBreakpoint: newVal
-            });
-          }
-        }), attributes.enableSmBreakpoint && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Spalten Anzahl", _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain),
-          value: smColumnNumber,
-          onChange: () => {},
-          min: 0,
-          max: 100,
-          step: 1
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "MD: > 768px"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "SM: > 992px"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "SM: > 1200px"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "SM: > 1400px"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      ...blockProps,
+      children: [editMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "edit-mode",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+          className: "piccy-label",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Piccy image gallery", _block_json__WEBPACK_IMPORTED_MODULE_4__.textdomain)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          ...innerBlocksProps
+        })]
+      }), !editMode && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "preview-mode",
+          children: (innerBlocks || []).map(item => {
+            console.log("item: ", item);
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_imageThumbnail__WEBPACK_IMPORTED_MODULE_7__.ImageThumbnail, {
+              className: `thumb ${item.clientId === previewModeImage.blockId ? "selected" : ""}`,
+              height: 75,
+              onClick: e => {
+                setPreviewModeImage({
+                  imageId: item.attributes.imageId,
+                  blockId: item.clientId
+                });
+              },
+              imageId: item.attributes.imageId
+            }, item.clientId);
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_imageThumbnail__WEBPACK_IMPORTED_MODULE_7__.ImageThumbnail, {
+            height: "initial",
+            imageId: previewModeImage?.imageId
+          })
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      ...innerBlocksProps
     })]
   });
 }
 
 /***/ }),
 
-/***/ "./src/grid-even/editor.scss":
-/*!***********************************!*\
-  !*** ./src/grid-even/editor.scss ***!
-  \***********************************/
+/***/ "./src/piccy-gallery/editor.scss":
+/*!***************************************!*\
+  !*** ./src/piccy-gallery/editor.scss ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -148,10 +213,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/grid-even/index.js":
-/*!********************************!*\
-  !*** ./src/grid-even/index.js ***!
-  \********************************/
+/***/ "./src/piccy-gallery/index.js":
+/*!************************************!*\
+  !*** ./src/piccy-gallery/index.js ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -159,17 +224,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/grid-even/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/grid-even/edit.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/grid-even/block.json");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/piccy-gallery/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/piccy-gallery/edit.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/piccy-gallery/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-
 
 
 /**
@@ -192,51 +254,26 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
   /**
    * @see ./edit.js
    */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
   save: () => {
     const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
-    const innerBlocksProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save(blockProps);
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      ...innerBlocksProps
-    });
-  },
-  edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
-  icon: {
-    src: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
-      width: "24",
-      height: "24",
-      viewBox: "0 0 24 24",
-      fill: "none",
-      xmlns: "http://www.w3.org/2000/svg",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-        "fill-rule": "evenodd",
-        "clip-rule": "evenodd",
-        d: "M3 5C3 3.89543 3.89543 3 5 3H18.5C19.6046 3 20.5 3.89543 20.5 5V18.5C20.5 19.6046 19.6046 20.5 18.5 20.5H5C3.89543 20.5 3 19.6046 3 18.5V5ZM5 4.5H11V11H4.5V5C4.5 4.72386 4.72386 4.5 5 4.5ZM4.5 12.5V18.5C4.5 18.7761 4.72386 19 5 19H11V12.5H4.5ZM12.5 12.5V19H18.5C18.7761 19 19 18.7761 19 18.5V12.5H12.5ZM12.5 4.5V11H19V5C19 4.72386 18.7761 4.5 18.5 4.5H12.5Z",
-        fill: "currentColor"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("rect", {
-        x: "8",
-        y: "7",
-        width: "8",
-        height: "10",
-        fill: "white"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-        d: "M9.67676 8.88281H13.6274V9.64746H10.5557V11.4492H12.8804V12.1875H10.5557V14.2266H13.6274V15H9.67676V8.88281Z",
-        fill: "black"
-      })]
-    })
+    const {
+      children
+    } = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save(blockProps);
+    return children;
   }
 });
 
 /***/ }),
 
-/***/ "./src/grid-even/style.scss":
-/*!**********************************!*\
-  !*** ./src/grid-even/style.scss ***!
-  \**********************************/
+/***/ "./src/piccy-gallery/style.scss":
+/*!**************************************!*\
+  !*** ./src/piccy-gallery/style.scss ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -272,6 +309,16 @@ module.exports = window["wp"]["blocks"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
 
 /***/ }),
 
@@ -415,8 +462,8 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"grid-even/index": 0,
-/******/ 			"grid-even/style-index": 0
+/******/ 			"piccy-gallery/index": 0,
+/******/ 			"piccy-gallery/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -466,7 +513,7 @@ module.exports = window["ReactJSXRuntime"];
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["grid-even/style-index"], () => (__webpack_require__("./src/grid-even/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["piccy-gallery/style-index"], () => (__webpack_require__("./src/piccy-gallery/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
