@@ -59,3 +59,13 @@ wp_enqueue_style("dashicons")
 ### load assets in editor
 
 add_action("enque_block_assets", function)
+
+### Load custom CSS into Gutenberg block editor iframe
+add_action( 'after_setup_theme', function () {
+    add_editor_style(  '/public/custom-editor.wbpgs.min.css' );
+});
+
+
+
+## @wordpress/icons
+https://wordpress.github.io/gutenberg/?path=/docs/icons-icon--default
