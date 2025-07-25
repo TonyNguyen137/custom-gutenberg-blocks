@@ -2,7 +2,14 @@
 /**
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+$block_wrapper_attributes = get_block_wrapper_attributes();
+$image_url = wp_get_attachment_image_url($attributes["imageId"]);
+
+// wp_send_json($block_wrapper_attributes);
+
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Piccy Image – hello from a dynamic block!', 'my-custom-blocks' ); ?>
-</p>
+
+<div <?php echo $block_wrapper_attributes;?> >
+	<img class="thumb" src="<?php echo $image_url; ?>"/>
+</div>
+
