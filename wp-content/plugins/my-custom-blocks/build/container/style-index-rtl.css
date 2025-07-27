@@ -1,1 +1,40 @@
-.wp-block-cb-container{margin-inline:auto;padding-inline:12px;width:100%}@media screen and (min-width:576px){.wp-block-cb-container{max-width:540px}}@media screen and (min-width:768px){.wp-block-cb-container:not(.is-style-sm){max-width:720px}}@media screen and (min-width:992px){.wp-block-cb-container:not(.is-style-sm):not(.is-style-md){max-width:960px}}@media screen and (min-width:1200px){.wp-block-cb-container:not(.is-style-sm):not(.is-style-md){max-width:1140px}}@media screen and (min-width:1400px){.wp-block-cb-container:not(.is-style-sm):not(.is-style-md){max-width:1320px}}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/container/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-cb-container {
+  width: 100%;
+  padding-inline: 12px;
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 576px) {
+  .wp-block-cb-container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wp-block-cb-container:not(.is-style-sm) {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 1140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .wp-block-cb-container:not(.is-style-sm):not(.is-style-md) {
+    max-width: 1320px;
+  }
+}

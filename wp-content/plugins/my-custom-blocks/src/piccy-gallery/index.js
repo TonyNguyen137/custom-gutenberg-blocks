@@ -14,7 +14,6 @@ import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
  */
 
 import "./style.scss";
-import "./my-custom-style.scss";
 
 /**
  * Internal dependencies

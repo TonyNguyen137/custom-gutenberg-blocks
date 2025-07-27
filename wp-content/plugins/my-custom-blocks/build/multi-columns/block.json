@@ -39,7 +39,8 @@
     "attributes": {
       "columnCount": 2,
       "columnWidth": 80
-    }
+    },
+    "viewportWidth": 720
   },
   "parent": [
     "core/post-content"

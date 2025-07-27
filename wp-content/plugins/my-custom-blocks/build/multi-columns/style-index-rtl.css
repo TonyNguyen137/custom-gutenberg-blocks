@@ -1,1 +1,27 @@
-.wp-block-custom-block-multi-columns{background-color:gold;box-sizing:border-box;color:#fff;-moz-column-fill:balance;column-fill:balance;padding:2px}.wp-block-custom-block-multi-columns.is-style-drop-cap{outline:3px dashed #000}.wp-block-custom-block-multi-columns.is-style-drop-cap p:first-of-type:first-letter{color:var(--drop-cap-color);float:right;font-size:var(--drop-cap-font-size);line-height:var(--drop-cap-line-height);padding-left:.33rem}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/multi-columns/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-custom-block-multi-columns {
+  background-color: gold;
+  color: #fff;
+  padding: 2px;
+  box-sizing: border-box;
+  -moz-column-fill: balance;
+       column-fill: balance;
+}
+.wp-block-custom-block-multi-columns.is-style-drop-cap {
+  outline: 3px dashed black;
+}
+.wp-block-custom-block-multi-columns.is-style-drop-cap p:first-of-type:first-letter {
+  color: var(--drop-cap-color);
+  float: right;
+  font-size: var(--drop-cap-font-size);
+  line-height: var(--drop-cap-line-height);
+  padding-left: 0.33rem;
+}

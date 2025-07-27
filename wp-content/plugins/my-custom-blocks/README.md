@@ -50,6 +50,85 @@ https://developer.wordpress.org/block-editor/getting-started/fundamentals/block-
 
 https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
 
+## remove default block styles
+
+https://fullsiteediting.com/lessons/how-to-remove-default-block-styles/
+
+## override image of core/post-featured-image
+
+```
+add_filter( 'render_block_core/post-featured-image', function( $block_content, $block ) {
+    if ( ! empty( $block['attrs']['sizeSlug'] ) && $block['attrs']['sizeSlug'] === 'large' ) {
+        return $block_content; // already large
+    }
+
+    if ( has_post_thumbnail() ) {
+        $img = get_the_post_thumbnail( null, 'medium_large' );
+        return $img;
+    }
+
+    return $block_content;
+}, 10, 2 );
+```
+
+### customize srcset and size
+
+```
+add_filter( 'wp_calculate_image_srcset', 'my_custom_srcset_filter', 10, 5 );
+
+function my_custom_srcset_filter( $sources, $size_array, $image_src, $image_meta, $attachment_id ) {
+    // Example: remove very large sizes
+    foreach ( $sources as $width => $source ) {
+        if ( $width > 1600 ) {
+            unset( $sources[ $width ] );
+        }
+    }
+    return $sources;
+}
+
+```
+
+```
+add_filter( 'wp_calculate_image_sizes', 'my_custom_image_sizes_filter', 10, 5 );
+
+function my_custom_image_sizes_filter( $sizes, $size, $image_src, $image_meta, $attachment_id ) {
+    // Example: override sizes for all medium images
+    if ( $size === 'medium' ) {
+        return '(max-width: 600px) 100vw, 600px';
+    }
+
+    return $sizes;
+}
+```
+
+### only manipulte srcset and sizes of a specific image
+
+```
+add_filter( 'post_thumbnail_html', function ( $html ) {
+    global $is_featured_image;
+    $is_featured_image = true;
+    return $html;
+}, 0 );
+
+```
+
+```
+add_filter( 'wp_calculate_image_sizes', function ( $sizes, $size, $image_src, $image_meta, $attachment_id ) {
+    global $is_featured_image;
+
+    if ( ! empty( $is_featured_image ) ) {
+        // Reset so other images aren't affected
+        $is_featured_image = false;
+
+        // Return custom sizes for featured images only
+        return '(max-width: 768px) 100vw, 768px';
+    }
+
+    return $sizes;
+}, 10, 5 );
+
+```
+
 ## some usefull hooks
 
 ### load dash icons
@@ -60,12 +139,49 @@ wp_enqueue_style("dashicons")
 
 add_action("enque_block_assets", function)
 
+## variations
+
+https://developer.wordpress.org/block-editor/reference-guides/block-api/block-variations/
+
+## register post types
+
+https://developer.wordpress.org/reference/functions/register_post_type/
+
+## Data
+
+### useselect
+
+https://developer.wordpress.org/block-editor/reference-guides/packages/packages-data/#useselect
+
+### access responsive images
+
+/wp-json/wp/v2/media/<ID>
+
+## prepopulate innerblocks
+
+```
+add_action( 'init', function () {
+$post_type = get_post_type_object( 'post' );
+
+    if ( $post_type ) {
+    	$post_type->template = [
+    		[ 'core/image', [] ],
+    		[ 'core/heading', [ 'placeholder' => 'Enter a heading' ] ],
+    		[ 'core/paragraph', [ 'placeholder' => 'Start writing...' ] ],
+    	];
+
+    	$post_type->template_lock = false;
+    }
+
+}, 20 );
+```
+
 ### Load custom CSS into Gutenberg block editor iframe
+
 add_action( 'after_setup_theme', function () {
-    add_editor_style(  '/public/custom-editor.wbpgs.min.css' );
+add_editor_style( '/public/custom-editor.wbpgs.min.css' );
 });
 
-
-
 ## @wordpress/icons
+
 https://wordpress.github.io/gutenberg/?path=/docs/icons-icon--default

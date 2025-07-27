@@ -1,1 +1,30 @@
-.wp-block-custom-block-piccy-image{align-items:center;display:flex;flex-direction:column}.wp-block-custom-block-piccy-image .media-select{background:#ddd;border:none;box-shadow:none;box-sizing:border-box;cursor:pointer;font-size:10px;font-weight:700;padding:10px 20px;text-align:center;width:100%}.wp-block-custom-block-piccy-image .media-select:hover{background-color:#ccc}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/piccy-image/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-custom-block-piccy-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wp-block-custom-block-piccy-image .media-select {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  background: #ddd;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+.wp-block-custom-block-piccy-image .media-select:hover {
+  background-color: #ccc;
+}
+
+/*# sourceMappingURL=index.css.map*/

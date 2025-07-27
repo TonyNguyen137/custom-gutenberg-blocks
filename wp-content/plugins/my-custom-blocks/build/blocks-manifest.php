@@ -360,6 +360,28 @@ return array(
 		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
+	'leaflet-map' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'custom-blocks/leaflet-map',
+		'version' => '0.1.0',
+		'title' => 'Map',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'map',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'my-custom-blocks',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
+		'viewScript' => 'file:./view.js'
+	),
 	'multi-columns' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -401,7 +423,8 @@ return array(
 			'attributes' => array(
 				'columnCount' => 2,
 				'columnWidth' => 80
-			)
+			),
+			'viewportWidth' => 720
 		),
 		'parent' => array(
 			'core/post-content'
@@ -498,6 +521,28 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
+	'my-reading-list' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'custom-block/my-reading-list',
+		'version' => '0.1.0',
+		'title' => 'My Reading List',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'Example block scaffolded with Create Block tool.',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'my-reading-list',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php',
 		'viewScript' => 'file:./view.js'
 	),
 	'piccy-gallery' => array(

@@ -33,3 +33,19 @@ add_action( 'wp_enqueue_scripts', 'prefix_remove_core_block_styles' );
  */
 
 add_filter('wp_img_tag_add_auto_sizes', '__return_false');
+
+
+
+add_action( 'init', function () {
+	$post_type = get_post_type_object( 'post' );
+
+	if ( $post_type ) {
+		$post_type->template = [
+			[ 'core/image', [] ],
+			[ 'core/heading', [ 'placeholder' => 'Enter a heading' ] ],
+			[ 'core/paragraph', [ 'placeholder' => 'Start writing...' ] ],
+		];
+
+		$post_type->template_lock = false;
+	}
+}, 20 );

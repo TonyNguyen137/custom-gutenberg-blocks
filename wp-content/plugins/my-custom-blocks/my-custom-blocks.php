@@ -60,9 +60,18 @@ function custom_block_my_custom_blocks_block_init() {
 		register_block_type( __DIR__ . "/build/{$block_type}" );
 	}
 
-}
+
+	/** 
+	 * register pattern 
+	 */
+
+
+};
 
 add_action( 'init', 'custom_block_my_custom_blocks_block_init' );
+
+
+
 
 
 
@@ -75,3 +84,90 @@ add_filter("block_categories_all", function($categories) {
 
 		return $categories;
 	});
+
+
+
+add_action( 'init', 'my_reading_list_register_book_post_type' );
+function my_reading_list_register_book_post_type() {
+	register_post_type(
+			'book',
+			array(
+					'labels'       => array(
+							'name'          => 'Books',
+							'singular_name' => 'Book',
+					),
+					'public'       => true,
+					'has_archive'  => true,
+					'supports'     => array( 'title', 'editor', 'thumbnail' ),
+					'show_in_rest' => true
+			) 
+	);
+
+		register_block_pattern_category('custom-blocks', array(
+			'label' => __("Toninho", 'custom-blocks')
+		));
+
+		register_block_pattern("custom-blocks/cta", array(
+		'category' => array('call-to-action', 'custom-blocks'), 
+		'title' => __('Call to action', 'default'),
+		'description' => __('fun', 'default'),
+		'content' => '
+			<!-- wp:cb/container -->
+			<div class="wp-block-cb-container"><!-- wp:heading -->
+			<h2 class="wp-block-heading">this is a heading</h2>
+			<!-- /wp:heading -->
+
+			<!-- wp:quote -->
+			<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+			<p>this is a random quote</p>
+			<!-- /wp:paragraph --></blockquote>
+			<!-- /wp:quote --></div>
+			<!-- /wp:cb/container -->
+		'
+	));
+
+	$script_url = plugins_url('build/index.js', __FILE__);
+
+	wp_enqueue_script('custom-blocks-index', $script_url, array('wp-blocks', 'wp-element', 'wp-editor'));
+
+	$style_url = plugins_url("build/style-index.css", __FILE__);
+	wp_enqueue_style('custom-blocks-style', $style_url, array());
+
+
+
+
+}
+
+
+
+
+
+/**
+ * Add featured image to the book post type
+ */
+add_action( 'rest_api_init', 'my_reading_list_register_book_featured_image' );
+function my_reading_list_register_book_featured_image() {
+    register_rest_field(
+        'book',
+        'featured_image_src',
+        array(
+            'get_callback' => 'my_reading_list_get_book_featured_image_src',
+            'schema'       => null,
+        )
+    );
+}
+function my_reading_list_get_book_featured_image_src( $object ) {
+    if ( $object['featured_media'] ) {
+        $img = wp_get_attachment_image_src( $object['featured_media'], 'medium' );
+        return $img[0];
+    }
+    return false;
+}
+
+
+
+
+add_action("enqueue_block_assets", function() {
+	$style_url = plugins_url("build/style-index.css", __FILE__); 
+	wp_enqueue_style('custom-blocks-style', $style_url, array());
+});
