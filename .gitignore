@@ -44,6 +44,7 @@ wp-content/uploads/
 wp-content/debug.log
 wp-content/upgrade/
 wp-content/themes/twenty*
+wp-content/plugins/my-custom-blocks/build/
 # Ignore the build folder
 build/
 
