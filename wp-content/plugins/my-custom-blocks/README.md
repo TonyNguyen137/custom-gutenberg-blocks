@@ -191,3 +191,37 @@ https://wordpress.github.io/gutenberg/?path=/docs/icons-icon--default
 
 // Image holen
 select("core").getMedia(${ID})
+
+select("core/block-editor").getSettings()
+
+
+
+## Bilder
+
+add_action( 'after_setup_theme', function () {
+    add_image_size('wb_770', 770);
+});
+
+
+// removes default image sizes
+add_filter('intermediate_image_sizes', function($sizes) {
+    $remove = ['medium', 'medium_large', 'large', '1536x1536', '2048x2048'];
+	return array_values(array_diff($sizes, $remove));
+
+}, 10, 1);
+
+
+// Unerwünschte Core-Größen aus dem Dropdown entfernen
+add_filter('image_size_names_choose', function ($sizes) {
+    unset($sizes['medium'],$sizes['full'], $sizes["thumbnail"], $sizes['medium_large'], $sizes['large'], $sizes['1536x1536'], $sizes['2048x2048']);
+	$sizes['wb_150']  = '150px';
+	$sizes['wb_600']  = '600px';
+    $sizes['wb_770']  = '770px';
+    $sizes['wb_800']  = '800px';
+    $sizes['wb_1000'] = '1000px';
+    $sizes['wb_1200'] = '1200px';
+    $sizes['wb_1400'] = '1400px';
+    $sizes['wb_1920'] = '1920px';
+
+    return $sizes;
+});
