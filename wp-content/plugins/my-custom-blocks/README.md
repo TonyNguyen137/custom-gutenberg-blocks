@@ -185,3 +185,9 @@ add_editor_style( '/public/custom-editor.wbpgs.min.css' );
 ## @wordpress/icons
 
 https://wordpress.github.io/gutenberg/?path=/docs/icons-icon--default
+
+
+## useSelect Hook
+
+// Image holen
+select("core").getMedia(${ID})
